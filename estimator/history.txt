@@ -113,6 +113,7 @@
   543  rm -rf $OUTPUT\_DIR
   544  gcloud ml-engine local train --package-path trainer                            --module-name trainer.task                            --                            --train-files $TRAIN\_FILE                            --eval-files $EVAL\_FILE                            --job-dir $OUTPUT\_DIR                            --train-steps $TRAIN\_STEPS                            --eval-steps 100
   545  cd ../
+
   546  gcloud ml-engine local train --package-path trainer                            --module-name trainer.task                            --                            --train-files $TRAIN\_FILE                            --eval-files $EVAL\_FILE                            --job-dir $OUTPUT\_DIR                            --train-steps $TRAIN\_STEPS                            --eval-steps 100
   547  ls
   548  cd estimator/trainer/
