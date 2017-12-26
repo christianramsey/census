@@ -53,5 +53,22 @@ gcloud ml-engine jobs submit training census_mod7 \
                                     --eval-steps 1000
 
 
+
+gcloud ml-engine jobs submit training census_ht \
+                                    --stream-logs \
+                                    --scale-tier 'basic-gpu' \
+                                    --runtime-version 1.4 \
+                                    --job-dir gs://census_east_one \
+                                    --config $HPTUNING_CONFIG \
+                                    --module-name trainer.task \
+                                    --package-path trainer/ \
+                                    --region us-east1 \
+                                    -- \
+                                    --train-files $TRAIN_FILE \
+                                    --eval-files $EVAL_FILE \
+                                    --train-steps $TRAIN_STEPS \
+                                    --eval-steps 1000
+
+
 rm -rf $CENSUS_DATA
 rm -rf $OUTPUT_DIR
