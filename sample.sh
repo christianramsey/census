@@ -70,5 +70,14 @@ gcloud ml-engine jobs submit training census_ht \
                                     --eval-steps 1000
 
 
+gcloud ml-engine jobs submit prediction batch_prediction \
+    --model census \
+    --version v1 \
+    --data-format TEXT \
+    --region us-central1 \
+    --runtime-version 1.4 \
+    --input-paths gs://cloudml-public/testdata/prediction/census.json \
+    --output-path $GCS_JOB_DIR/predictions
+
 rm -rf $CENSUS_DATA
 rm -rf $OUTPUT_DIR
