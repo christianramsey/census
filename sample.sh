@@ -59,7 +59,7 @@ gcloud ml-engine jobs submit training census_ht \
                                     --scale-tier 'basic-gpu' \
                                     --runtime-version 1.4 \
                                     --job-dir gs://census_east_one \
-                                    --config $HPTUNING_CONFIG \
+                                    --config ../hptuning_config.yaml
                                     --module-name trainer.task \
                                     --package-path trainer/ \
                                     --region us-east1 \
